@@ -1,1 +1,79 @@
 # Что нужно знать при работе с REACT
+
+1 - подключаем библиотеку REACT:
+```javascript
+  import React, { Component } from 'react';
+```
+главный компонент:
+```javascript
+  import React from 'react';	
+```
+2 - создаем класс, если нужно хранить значения в `state`
+```javascript
+  class App extends Component {
+    constructor(props) {
+      super(props)
+    }
+  }
+```
+  Если `state` не нужен, то создаем `stateless` ф-цию
+```javascript
+  const MyComponent = () => {
+    return (
+	  // JSX
+	)
+  }
+```
+`props` - свойства компонента, передаются как атрибуты
+
+3 - храним состояние
+```javascript
+  this.state = { value: '' };
+```
+или
+```javascript
+  getInitialState() {
+    return { value: '' }    
+  }
+```
+4 - валидация переменных при помощи библиотеки `prop-types`
+```javascript
+  <Class Name>.propTypes =  {
+    value(то что this.props.value): React.PropTypes.string.isRequired,  // для цифр
+    onColorChange: React.PropTypes.func	   // для функции
+  }
+```
+5 - если нужно взаимодействие с браузером (срабатывает только при инициализации)
+```javascript
+  componentDidMount() {...}
+```
+6 - изменение переменно хранящейся в `state`
+```javascript
+  this.setState({
+    value: this.state.value + 1,        // для переменной
+    arr: this.state.arr.concat([...])  // для массива
+  });
+```
+7 - Информацию об элементе можно получить c помощью ref
+```javascript
+  <... ref="city">  получаем this.refs.city
+```
+8 - отрисовка компонента
+```javascript
+  render() {
+    return (...)
+  }
+```
+отрисовка главного компанента:
+```javascript
+  ReactDOM.render( <App />, document.getElementById('root'));		
+```
+9 - передаваемая функция в props, вызывается в компоненте-конструктор с параметрами компонента-конструктора и в компоненте их получаем в аргументе
+	Компонент-конструктор
+```javascript
+  <input onChange={(e)=>props.onValue(e, e.target.value)} />
+```
+	Компонент
+```javascript		
+  <input onValue={(e, value) => value} />
+```	
