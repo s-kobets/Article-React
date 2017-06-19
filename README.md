@@ -69,11 +69,13 @@
   ReactDOM.render( <App />, document.getElementById('root'));		
 ```
 9 - передаваемая функция в props, вызывается в компоненте-конструктор с параметрами компонента-конструктора и в компоненте их получаем в аргументе
-	Компонент-конструктор
+
+  Компонент-конструктор
 ```javascript
   <input onChange={(e)=>props.onValue(e, e.target.value)} />
 ```
-	Компонент
+
+  Компонент
 ```javascript		
   <input onValue={(e, value) => value} />
 ```	
