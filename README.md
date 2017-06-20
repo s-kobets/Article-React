@@ -20,8 +20,8 @@
 ```javascript
   const MyComponent = () => {
     return (
-	  // JSX
-	)
+      // JSX
+    )
   }
 ```
 `props` - свойства компонента, передаются как атрибуты
@@ -52,11 +52,25 @@
   this.setState({
     value: this.state.value + 1,        // для переменной
     arr: this.state.arr.concat([...])  // для массива
-  });
+  });  
 ```
-7 - Информацию об элементе можно получить c помощью ref
+`this.state`,`this.props` - обновляються асинхронно!
+#### Лучше передать в `setState` функцию, а не объект
+```javascript
+  this.setState((prevState, props) => (
+    {value: prevState.value + 1}
+  ));
+```
+7 - Информацию об элементе можно получить c помощью `ref`
 ```javascript
   <... ref="city">  получаем this.refs.city
+```
+Атрибут `ref` принимает функцию обратного вызова, и вызывает ее после того, как компонент монтируется в `DOM` или удаляется из него. Использовал для фокуса в `input`:
+```javascript
+  <input
+    type="text"
+    ref={(input) => { this.textInput = input }}
+  />
 ```
 8 - отрисовка компонента
 ```javascript
