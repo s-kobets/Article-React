@@ -2,15 +2,18 @@
 
 1 - подключаем библиотеку REACT:
 ```javascript
-  import React, { Component } from 'react';
+  import React, { Component } from 'react'
+  import React, { PureComponent } from 'react'
 ```
+`PureComponent` будет всегда заново отрисовывать компоненты, если будет получать ссылки на разные объекты в `props` и `state`. Он предполагает неглубокую проверку, что сокращает количество рендеров в приложении.
+
 главный компонент:
 ```javascript
   import React from 'react';	
 ```
 2 - создаем класс, если нужно хранить значения в `state`
 ```javascript
-  class App extends Component {
+  class App extends Component { // || PureComponent
     constructor(props) {
       super(props)
     }
@@ -18,7 +21,7 @@
 ```
   Если `state` не нужен, то создаем `stateless` ф-цию
 ```javascript
-  const MyComponent = () => {
+  const MyComponent = (props) => {
     return (
       // JSX
     )
