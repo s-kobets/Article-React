@@ -98,3 +98,8 @@
 ```	
 
 10 - обратиться к `NODE` элементам, рекомендуется только в `componentDidMount()` и `componentWillUnmount()` в `constructor()` все узлы добавляемые через `REACT` равны `undefined`, т.к. срабатывает раньше прорисовки `DOM` дерева
+```javascript
+  componentDidMount() {
+	this.elem = document.getElementById('name')
+  }
+```
