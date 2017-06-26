@@ -96,3 +96,5 @@
 ```javascript		
   <input onValue={(e, value) => value} />
 ```	
+
+10 - обратиться к `NODE` элементам, рекомендуется только в `componentDidMount()` и `componentWillUnmount()` в `constructor()` все узлы добавляемые через `REACT` равны `undefined`, т.к. срабатывает раньше прорисовки `DOM` дерева
